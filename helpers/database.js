@@ -1,6 +1,6 @@
 if (process.env.NODE_ENV  === 'production') {
             module.exports = {
-                host: 'ck.codingkeeda.com:3306',
+                host: 'localhost',
                 user: 'CK_APP',
                 password: "CK_APP&@",
                 database: "ckapp"
