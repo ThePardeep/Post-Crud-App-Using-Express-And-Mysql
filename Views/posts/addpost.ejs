@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add Post</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+
+<body>
+  <%- include('../inc/header'); -%>
+
+  <div class="container ">
+    <main style="margin:10px; border:2px solid #f1f1f1; padding: 10px;">
+      <% if(success_msg != "") { %>
+      <p class="alert alert-success">
+        <%= success_msg %>
+      </p>
+      <% } %>
+      <% if(err_verify != "") { 
+          error = JSON.parse(error_msg);
+          %>
+      <div class="container">
+        <% for(const key in error) { %>
+        <p class="alert alert-danger">
+          <%= error[key] %>
+        </p>
+        <% }; %>
+      </div>
+      <% } %>
+      <h1 class="display-4">Add Post</h1>
+        <hr>
+      <form action="/post/insert" method="POST">
+        <div class="form-group">
+          <label class="lead" for="title">Post Title</label>
+          <input name="title" type="text" class="form-control" id="title" placeholder="Enter title">
+        </div>
+        <div class="form-group">
+          <label class="lead" for="body">Post Body</label>
+          <input name="body" type="body" class="form-control" id="body" placeholder="Post Body">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+
+
+    </main>
+  </div>
+
+  <%- include('../inc/footer'); -%>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
