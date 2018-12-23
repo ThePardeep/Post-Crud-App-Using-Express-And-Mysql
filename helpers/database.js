@@ -1,19 +1,16 @@
-module.exports = {
-    databaseUse: function () {
-        if (process.env.node_) {
-            return {
+if (process.env.NODE_ENV  === 'production') {
+            module.exports = {
                 host: 'localhost:3360',
                 user: 'CK_APP',
                 password: "CK_APP&@",
                 database: "ckapp"
             }
         } else {
-            return {
-                host: 'localhost:3360',
-                user: 'CK_APP',
-                password: "CK_APP&@",
+            module.exports = {
+                host: '127.0.0.1',
+                user: 'root',
+                password: "",
                 database: "ckapp"
             }
         }
-    }
-}
+    

@@ -2,13 +2,10 @@ const localStrategy = require("passport-local");
 const mysql = require("mysql");
 const bcrypt = require("bcryptjs");
 
+//Import Data Base File
+const database = require("../helpers/database");
 // Mysql Connect
-const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'CK_APP',
-    password: "CK_APP&@",
-    database: "ckapp"
- })
+const conn = mysql.createConnection(database);
 conn.connect();
 
 
